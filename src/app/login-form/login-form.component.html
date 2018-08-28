@@ -1,0 +1,37 @@
+<div>
+  <div>
+    <img src="../../assets/ellipse.png" alt="">
+    <div>
+      <h1>swedavia</h1>
+      <h3>swedish airport</h3>
+    </div>
+  </div>
+  <form [formGroup]="loginForm"
+        (submit)="onSubmit(loginForm.value)"
+        [@formShadow]="mouseLocation"
+        (mouseenter)="onMouseEnterForm()"
+        (mouseleave)="onMouseLeaveForm()"
+  >
+    <div>
+      <label>Username</label>
+      <input formControlName="username" name="username" type="text">
+      <div *ngIf="loginForm.get('username').errors">
+        <div [hidden]="!loginForm.get('username').errors.required">Username is required</div>
+        <div [hidden]="!loginForm.get('username').errors.minlength">Username is too short</div>
+      </div>
+    </div>
+    <div>
+      <label>Password</label>
+      <input formControlName="password" name="password" type="password">
+      <div *ngIf="loginForm.get('password').errors">
+        <div [hidden]="!loginForm.get('password').errors.required">Password is required</div>
+        <div [hidden]="!loginForm.get('password').errors.minlength">Password is too short</div>
+      </div>
+    </div>
+    <div>
+      <button [disabled]="loginForm.invalid">SUBMIT</button>
+      <a href="">Forgot password?</a>
+    </div>
+  </form>
+  <span>Powered by <a href="">Cygate</a></span>
+</div>
