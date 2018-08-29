@@ -7,13 +7,13 @@ import {LoginService} from '../login.service';
   styleUrls: ['./popup-greetings.component.scss']
 })
 export class PopupGreetingsComponent implements OnInit {
-  username: string;
+  protected username: string;
 
   constructor(private loginService: LoginService) {
   }
 
   ngOnInit() {
-    this.username = this.loginService.getUsername();
+    this.username = this.loginService.username;
   }
 
 }

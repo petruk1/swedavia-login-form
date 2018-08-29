@@ -1,6 +1,7 @@
 $color-grey: rgb(186, 186, 186);
 $color-blue: rgb(0, 77, 139);
 $border-radius-2: 2px;
+
 :host {
   display: flex;
   justify-content: center;
@@ -16,19 +17,30 @@ $border-radius-2: 2px;
     flex-direction: column;
     align-self: center;
     width: 340px;
-    & > div:nth-child(1) {
+
+    & > div:first-child {
       display: flex;
       color: $color-blue;
       align-items: center;
-
       div {
         margin-left: 20px;
-       * {
+
+        * {
           margin: 0;
+          font-weight: bold;
+        }
+
+        h1 {
+          font-size: 34px;
+        }
+
+        h3 {
+          font-size: 20px
         }
       }
     }
-    & > form {
+
+    form {
       display: flex;
       flex-direction: column;
       background-color: white;
@@ -36,21 +48,40 @@ $border-radius-2: 2px;
       width: 100%;
       padding: 15px 25px 25px 25px;
       margin: 20px 0;
+
+      box-shadow: none;
+      -webkit-transition: box-shadow .2s ease-out;
+      -moz-transition: box-shadow .2s ease-out;
+      -o-transition: box-shadow .2s ease-out;
+      transition: box-shadow .2s ease-out;
+
+      &:hover {
+        box-shadow: 0 3px 15px gray;
+
+        -webkit-transition: box-shadow .5s ease-out;
+        -moz-transition: box-shadow .5s ease-out;
+        -o-transition: box-shadow .5s ease-out;
+        transition: box-shadow .5s ease-out;
+      }
+
       & > div {
         display: flex;
         flex-direction: column;
         margin-bottom: 10px;
+
         input {
           padding: 7px;
           border-radius: $border-radius-2;
           border: 1px solid rgb(247, 247, 247);
         }
-        div{
+
+        div {
           padding: 5px;
           border-radius: $border-radius-2;
           background-color: #ffa0a0;
         }
       }
+
       & > div:last-child {
         margin-top: 10px;
         margin-bottom: 0;
@@ -58,6 +89,7 @@ $border-radius-2: 2px;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+
         button {
           border-radius: 50px;
           padding: 10px 30px;
@@ -66,18 +98,21 @@ $border-radius-2: 2px;
           color: white;
           letter-spacing: 1px;
           cursor: pointer;
-          &:focus{
+
+          &:focus {
             outline: none;
           }
         }
+
         a {
           color: $color-grey;
         }
       }
     }
-    span{
+    span {
       color: $color-grey;
-      a{
+
+      a {
         color: inherit;
       }
     }
