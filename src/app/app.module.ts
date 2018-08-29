@@ -5,16 +5,13 @@ import {AppComponent} from './app.component';
 import {LoginFormComponent} from './login-form/login-form.component';
 import {PopupGreetingsComponent} from './popup-greetings/popup-greetings.component';
 import {RouterModule, Routes} from '@angular/router';
-import {AuthGuard} from './auth-guard.service';
+import {AuthGuard} from './guards/auth-guard.service';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {WebpageNotFoundComponent} from './webpage-not-found/webpage-not-found.component';
 
-const App_Routes: Routes = [
+const APP_ROUTES: Routes = [
   {
-    path: 'welcome',
-    canActivate: [AuthGuard],
-    component: PopupGreetingsComponent
-  }, {
     path: 'login',
     component: LoginFormComponent
   }, {
@@ -25,6 +22,9 @@ const App_Routes: Routes = [
     path: '',
     redirectTo: '/dashboard',
     pathMatch: 'full'
+  }, {
+    path: '**',
+    component: WebpageNotFoundComponent
   }];
 
 @NgModule({
@@ -32,16 +32,16 @@ const App_Routes: Routes = [
     AppComponent,
     LoginFormComponent,
     PopupGreetingsComponent,
-    DashboardComponent
+    DashboardComponent,
+    WebpageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(App_Routes)
+    RouterModule.forRoot(APP_ROUTES)
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {

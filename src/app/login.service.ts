@@ -1,23 +1,28 @@
 import {Injectable} from '@angular/core';
+import {UserAuthData} from './shared/user-auth-data.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  username: string;
-  password: string;
-  isAuthorized = false;
+  private _username: string;
+  private _password: string;
+  private _isAuthorized = false;
 
   constructor() {
   }
 
-  login(userdata: any): void {
-    this.username = userdata.username;
-    this.password = userdata.password;
-    this.isAuthorized = true;
+  login(userData: UserAuthData): void {
+    this._username = userData.username;
+    this._password = userData.password;
+    this._isAuthorized = true;
   }
 
-  getUsername() {
-    return this.username;
+  get isAuthorized() {
+    return this._isAuthorized;
+  }
+
+  get username() {
+    return this._username;
   }
 }
